@@ -1,11 +1,68 @@
 .buttonsContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .button {
-  width: 45px;
-  height: 45px;
-  margin: 3px;
+  min-width: 0;
+  height: 54px;
+  border: 0;
+  border-radius: 17px;
+  background: #f0f2f7;
+  color: #263149;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: #e7eaf2;
+  box-shadow: 0 5px 12px rgba(33, 45, 70, 0.1);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(82, 111, 224, 0.42);
+  outline-offset: 2px;
+}
+
+.operator {
+  background: #e9efff;
+  color: #526fe0;
+}
+
+.operator:hover {
+  background: #dce5ff;
+}
+
+.clear {
+  background: #fff0ed;
+  color: #d66b56;
+}
+
+.clear:hover {
+  background: #ffe3dd;
+}
+
+.equals {
+  background: #526fe0;
+  color: #fff;
+  box-shadow: 0 7px 15px rgba(82, 111, 224, 0.24);
+}
+
+.equals:hover {
+  background: #405dce;
+  box-shadow: 0 9px 18px rgba(82, 111, 224, 0.3);
+}
+
+.zero {
+  grid-column: span 2;
 }

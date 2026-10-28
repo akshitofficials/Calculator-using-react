@@ -18,10 +18,20 @@ function App() {
   };
 
   return (
-    <div className={styles.calculator}>
-      <Display displayVal={calVal}></Display>
-      <ButtonsContainer onButtonClick={onButtonClick}></ButtonsContainer>
-    </div>
+    <main className={styles.page}>
+      <section className={styles.calculator} aria-label="Calculator">
+        <header className={styles.header}>
+          <div className={styles.brandMark} aria-hidden="true">+</div>
+          <div>
+            <p className={styles.eyebrow}>Everyday tool</p>
+            <h1 className={styles.title}>Calculator</h1>
+          </div>
+        </header>
+        <Display displayVal={calVal} />
+        <ButtonsContainer onButtonClick={onButtonClick} />
+        <p className={styles.hint}>A little math goes a long way.</p>
+      </section>
+    </main>
   );
 }
 

@@ -3,20 +3,20 @@ import styles from "./ButtonsContainer.module.css";
 const ButtonsContainer = ({ onButtonClick }) => {
   const buttonNames = [
     "C",
-    "1",
-    "2",
-    "+",
-    "3",
-    "4",
-    "-",
-    "5",
-    "6",
+    "/",
     "*",
+    "-",
     "7",
     "8",
-    "/",
-    "=",
     "9",
+    "+",
+    "4",
+    "5",
+    "6",
+    "=",
+    "1",
+    "2",
+    "3",
     "0",
     ".",
   ];
@@ -26,7 +26,16 @@ const ButtonsContainer = ({ onButtonClick }) => {
       {buttonNames.map((buttonName) => (
         <button
           key={buttonName}
-          className={styles.button}
+          className={`${styles.button} ${
+            buttonName === "C"
+              ? styles.clear
+              : buttonName === "="
+                ? styles.equals
+                : ["+", "-", "*", "/"].includes(buttonName)
+                  ? styles.operator
+                  : ""
+          } ${buttonName === "0" ? styles.zero : ""}`}
+          type="button"
           onClick={() => onButtonClick(buttonName)}
         >
           {buttonName}
